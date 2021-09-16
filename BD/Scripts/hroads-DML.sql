@@ -49,3 +49,17 @@ SET nomeClasse = 'Necromancer'
 WHERE nomeClasse = 'Necromante'
 GO
 
+/*
+Inserir dados na tabela TIPOUSUARIO
+*/
+
+INSERT INTO TIPOUSUARIO (titulo)
+VALUES ('ADMINISTRADOR'),('JOGADOR')
+GO
+
+/*
+Inserir dados na tabela USUARIO
+*/
+INSERT INTO USUARIO (idTipoUsuario, email, senha)
+VALUES (1,'admin@admin.com','admin'),(2,'jogador@jogador.com','jogador')
+GO
