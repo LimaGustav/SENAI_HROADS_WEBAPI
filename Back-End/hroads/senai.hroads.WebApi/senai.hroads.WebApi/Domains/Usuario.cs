@@ -12,6 +12,6 @@ namespace senai.hroads.WebApi.Domains
         public string Email { get; set; }
         public string Senha { get; set; }
 
-        public virtual Tipousuario IdTipoUsuarioNavigation { get; set; }
+        public virtual TipoUsuario IdTipoUsuarioNavigation { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace senai.hroads.WebApi.Interfaces
 {
-    interface IClassseHabilidadeRepository
+    interface IClasseHabilidadeRepository
     {
         /// <summary>
         /// Lista todas as ClasseHabilidades
