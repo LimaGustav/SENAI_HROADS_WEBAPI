@@ -13,14 +13,14 @@ namespace senai.hroads.WebApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class TiposUsuarioController : ControllerBase
+    public class TiposHabilidadeController : ControllerBase
     {
-        private ITipoUsuarioRepository _tipoUsuarioRepository { get; set; }
+        private ITipoHabilidadeRepository _tipoHabilidadeRepository { get; set; }
 
 
-        public TiposUsuarioController()
+        public TiposHabilidadeController()
         {
-            _tipoUsuarioRepository = new TipoUsuarioRepository();
+            _tipoHabilidadeRepository = new TipoHabilidadeRepository();
         }
 
         [HttpGet]
@@ -28,7 +28,7 @@ namespace senai.hroads.WebApi.Controllers
         {
             try
             {
-                return Ok(_tipoUsuarioRepository.Listar());
+                return Ok(_tipoHabilidadeRepository.Listar());
             }
             catch (Exception erro)
             {
@@ -36,39 +36,40 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
-        [HttpGet("{idTipoUsuario}")]
-        public IActionResult GetById(int idTipoUsuario)
+        [HttpGet("{idTipoHabilidade}")]
+        public IActionResult GetById(int idUsuario)
         {
             try
             {
-                TipoUsuario tipoUsuarioBuscado = _tipoUsuarioRepository.BuscarPorId(idTipoUsuario);
+                TipoHabilidade tipoHabilidadeBuscado = _tipoHabilidadeRepository.BuscarPorId(idUsuario);
 
-                if (tipoUsuarioBuscado == null)
+                if (tipoHabilidadeBuscado == null)
                 {
                     return NotFound(
                             new
                             {
-                                mensagem = "TipoUsuario não encontrado",
+                                mensagem = "Usuario não encontrado",
                                 erro = true
                             }
 
                         ); ;
 
                 }
-                return Ok(tipoUsuarioBuscado);
+                return Ok(tipoHabilidadeBuscado);
             }
             catch (Exception erro)
             {
                 return BadRequest(erro);
             }
+            
         }
 
         [HttpPost]
-        public IActionResult Post(TipoUsuario novoTipoUsuario)
+        public IActionResult Post(TipoHabilidade novoTipoHabilidade)
         {
             try
             {
-                _tipoUsuarioRepository.Cadastrar(novoTipoUsuario);
+                _tipoHabilidadeRepository.Cadastrar(novoTipoHabilidade);
 
                 return StatusCode(201);
             }
@@ -76,14 +77,15 @@ namespace senai.hroads.WebApi.Controllers
             {
                 return BadRequest(erro);
             }
+            
         }
 
-        [HttpPut("{idTipoUsuario}")]
-        public IActionResult UpdateByUrl(int idTipoUsuario, TipoUsuario tipoUsuarioAtualizado)
+        [HttpPut("{idTipoHabilidade}")]
+        public IActionResult UpdateByUrl(int idTipoHabilidade, TipoHabilidade tipoHabilidadeAtualizada)
         {
             try
             {
-                _tipoUsuarioRepository.Atualizar(idTipoUsuario, tipoUsuarioAtualizado);
+                _tipoHabilidadeRepository.Atualizar(idTipoHabilidade, tipoHabilidadeAtualizada);
 
                 return StatusCode(204);
             }
@@ -93,12 +95,13 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
-        [HttpDelete("{idTipoUsuario}")]
-        public IActionResult Delete(int idTipoUsuario)
+        [HttpDelete("{idTipoHabilidade}")]
+        public IActionResult Delete(int idTipoHabilidade)
         {
+
             try
             {
-                _tipoUsuarioRepository.Deletar(idTipoUsuario);
+                _tipoHabilidadeRepository.Deletar(idTipoHabilidade);
 
                 return StatusCode(204);
             }
@@ -106,6 +109,7 @@ namespace senai.hroads.WebApi.Controllers
             {
                 return BadRequest(erro);
             }
+
         }
     }
 }

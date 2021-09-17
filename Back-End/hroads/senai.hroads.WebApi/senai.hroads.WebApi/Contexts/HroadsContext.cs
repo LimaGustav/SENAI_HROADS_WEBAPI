@@ -33,12 +33,18 @@ namespace senai.hroads.WebApi.Contexts
                 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
 
                 // Gustavo
-                string dataSource = "DESKTOP-0V8LRRR\\SQLEXPRESS";
+                // string dataSource = "DESKTOP-0V8LRRR\\SQLEXPRESS";
+
+                // Senai
+                string dataSource = "NOTE0113B2\\SQLEXPRESS";
 
                 // Edson
                 //string dataSource = "DESKTOP-TE4354L\\SQLEXPRESS";
 
-                optionsBuilder.UseSqlServer($"Data Source={dataSource}; initial catalog=HROADS; user Id=sa; pwd=senai@132;");
+                // Senha senai
+                // Senai@132
+
+                optionsBuilder.UseSqlServer($"Data Source={dataSource}; initial catalog=HROADS; user Id=sa; pwd=Senai@132;");
             }
         }
 

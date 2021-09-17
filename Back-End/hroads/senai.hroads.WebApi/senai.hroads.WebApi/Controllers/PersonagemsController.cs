@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using senai.hroads.webApi.Interfaces;
 using senai.hroads.WebApi.Domains;
+using senai.hroads.WebApi.Interfaces;
 using senai.hroads.WebApi.Repositories;
 using System;
 using System.Collections.Generic;
@@ -13,62 +13,59 @@ namespace senai.hroads.WebApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class TiposUsuarioController : ControllerBase
+    public class PersonagemsController : ControllerBase
     {
-        private ITipoUsuarioRepository _tipoUsuarioRepository { get; set; }
+        private IPersonagemRepository _personagemRepository { get; set; }
 
-
-        public TiposUsuarioController()
+        public PersonagemsController()
         {
-            _tipoUsuarioRepository = new TipoUsuarioRepository();
+            _personagemRepository = new PersonagemRepository();
         }
 
         [HttpGet]
-        public IActionResult Listar()
+        public IActionResult Get()
         {
             try
             {
-                return Ok(_tipoUsuarioRepository.Listar());
+                return Ok(_personagemRepository.Listar());
             }
             catch (Exception erro)
             {
                 return BadRequest(erro);
+                throw;
             }
         }
 
-        [HttpGet("{idTipoUsuario}")]
-        public IActionResult GetById(int idTipoUsuario)
+        [HttpGet("{idPersonagem}")]
+        public IActionResult GetById(int idPersonagem)
         {
             try
             {
-                TipoUsuario tipoUsuarioBuscado = _tipoUsuarioRepository.BuscarPorId(idTipoUsuario);
+                Personagem personagemBuscado = _personagemRepository.BuscarPorId(idPersonagem);
 
-                if (tipoUsuarioBuscado == null)
+                if (personagemBuscado == null)
                 {
                     return NotFound(
                             new
                             {
-                                mensagem = "TipoUsuario não encontrado",
+                                mensagem = "Personagem não encontrado",
                                 erro = true
                             }
-
-                        ); ;
-
+                        );
                 }
-                return Ok(tipoUsuarioBuscado);
+                return Ok(personagemBuscado);
             }
             catch (Exception erro)
             {
                 return BadRequest(erro);
             }
         }
-
         [HttpPost]
-        public IActionResult Post(TipoUsuario novoTipoUsuario)
+        public IActionResult Post(Personagem novoPersonagem)
         {
             try
             {
-                _tipoUsuarioRepository.Cadastrar(novoTipoUsuario);
+                _personagemRepository.Cadastrar(novoPersonagem);
 
                 return StatusCode(201);
             }
@@ -78,12 +75,12 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
-        [HttpPut("{idTipoUsuario}")]
-        public IActionResult UpdateByUrl(int idTipoUsuario, TipoUsuario tipoUsuarioAtualizado)
+        [HttpPut("{idPersonagem}")]
+        public IActionResult UpdateByUrl(int idPersonagem, Personagem personagemAtualizado)
         {
             try
             {
-                _tipoUsuarioRepository.Atualizar(idTipoUsuario, tipoUsuarioAtualizado);
+                _personagemRepository.Atualizar(idPersonagem, personagemAtualizado);
 
                 return StatusCode(204);
             }
@@ -93,12 +90,12 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
-        [HttpDelete("{idTipoUsuario}")]
-        public IActionResult Delete(int idTipoUsuario)
+        [HttpDelete("{idPersonagem}")]
+        public IActionResult Delete(int idPersonagem)
         {
             try
             {
-                _tipoUsuarioRepository.Deletar(idTipoUsuario);
+                _personagemRepository.Deletar(idPersonagem);
 
                 return StatusCode(204);
             }

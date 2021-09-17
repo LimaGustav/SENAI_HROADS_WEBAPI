@@ -13,14 +13,14 @@ namespace senai.hroads.WebApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class TiposUsuarioController : ControllerBase
+    public class UsuariosController : ControllerBase
     {
-        private ITipoUsuarioRepository _tipoUsuarioRepository { get; set; }
+        private IUsuarioRepository _usuarioRepository { get; set; }
 
 
-        public TiposUsuarioController()
+        public UsuariosController()
         {
-            _tipoUsuarioRepository = new TipoUsuarioRepository();
+            _usuarioRepository = new UsuarioRepository();
         }
 
         [HttpGet]
@@ -28,47 +28,49 @@ namespace senai.hroads.WebApi.Controllers
         {
             try
             {
-                return Ok(_tipoUsuarioRepository.Listar());
+                return Ok(_usuarioRepository.Listar());
             }
             catch (Exception erro)
             {
                 return BadRequest(erro);
             }
+            
         }
 
-        [HttpGet("{idTipoUsuario}")]
-        public IActionResult GetById(int idTipoUsuario)
+        [HttpGet("{idUsuario}")]
+        public IActionResult GetById(int idUsuario)
         {
             try
             {
-                TipoUsuario tipoUsuarioBuscado = _tipoUsuarioRepository.BuscarPorId(idTipoUsuario);
+                Usuario usuarioBuscado = _usuarioRepository.BuscarPorId(idUsuario);
 
-                if (tipoUsuarioBuscado == null)
+                if (usuarioBuscado == null)
                 {
                     return NotFound(
                             new
                             {
-                                mensagem = "TipoUsuario não encontrado",
+                                mensagem = "Usuario não encontrado",
                                 erro = true
                             }
 
                         ); ;
 
                 }
-                return Ok(tipoUsuarioBuscado);
+                return Ok(usuarioBuscado);
             }
             catch (Exception erro)
             {
                 return BadRequest(erro);
             }
+           
         }
 
         [HttpPost]
-        public IActionResult Post(TipoUsuario novoTipoUsuario)
+        public IActionResult Post(Usuario usuario)
         {
             try
             {
-                _tipoUsuarioRepository.Cadastrar(novoTipoUsuario);
+                _usuarioRepository.Cadastrar(usuario);
 
                 return StatusCode(201);
             }
@@ -76,14 +78,15 @@ namespace senai.hroads.WebApi.Controllers
             {
                 return BadRequest(erro);
             }
+            
         }
 
-        [HttpPut("{idTipoUsuario}")]
-        public IActionResult UpdateByUrl(int idTipoUsuario, TipoUsuario tipoUsuarioAtualizado)
+        [HttpPut("{idUsuario}")]
+        public IActionResult UpdateByUrl(int idUsuario, Usuario usuarioAtualizado)
         {
             try
             {
-                _tipoUsuarioRepository.Atualizar(idTipoUsuario, tipoUsuarioAtualizado);
+                _usuarioRepository.Atualizar(idUsuario, usuarioAtualizado);
 
                 return StatusCode(204);
             }
@@ -91,14 +94,15 @@ namespace senai.hroads.WebApi.Controllers
             {
                 return BadRequest(erro);
             }
+            
         }
 
-        [HttpDelete("{idTipoUsuario}")]
-        public IActionResult Delete(int idTipoUsuario)
+        [HttpDelete("{idUsuario}")]
+        public IActionResult Delete(int idUsuario)
         {
             try
             {
-                _tipoUsuarioRepository.Deletar(idTipoUsuario);
+                _usuarioRepository.Deletar(idUsuario);
 
                 return StatusCode(204);
             }
