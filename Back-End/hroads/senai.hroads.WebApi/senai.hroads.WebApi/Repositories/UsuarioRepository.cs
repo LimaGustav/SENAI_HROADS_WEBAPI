@@ -30,6 +30,14 @@ namespace senai.hroads.WebApi.Repositories
             }
         }
 
+        public Usuario BuscarPorEmailSenha(string email, string senha)
+        {
+
+            Usuario usuarioBuscado = ctx.Usuarios.FirstOrDefault(c => c.Email == email && c.Senha == senha);
+
+            return (usuarioBuscado);
+        }
+
         public Usuario BuscarPorId(int idUsuario)
         {
             // Retorna um usuario encontrado com o id informado
