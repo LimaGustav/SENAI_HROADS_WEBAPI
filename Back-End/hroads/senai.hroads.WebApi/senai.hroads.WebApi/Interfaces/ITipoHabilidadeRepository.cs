@@ -1,5 +1,4 @@
-﻿using senai.hroads.webApi.Domains;
-using senai.hroads.WebApi.Domains;
+﻿using senai.hroads.WebApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,8 +31,8 @@ namespace senai.hroads.webApi.Interfaces
         /// Atualiza um TipoHabilidade existente
         /// </summary>
         /// <param name="idTipoHabilidade">ID do TipoHabilidade que será atualizado</param>
-        /// <param name="TipoHabilidadeAtualizada">Objeto TipoHabilidadeAtualizada com as novas informações</param>
-        void Atualizar(int idTipoHabilidade, TipoHabilidade TipoHabilidadeAtualizada);
+        /// <param name="tipoHabilidadeAtualizada">Objeto TipoHabilidadeAtualizada com as novas informações</param>
+        void Atualizar(int idTipoHabilidade, TipoHabilidade tipoHabilidadeAtualizada);
 
         /// <summary>
         /// Deleta um Tipo de habilidade existente

@@ -65,3 +65,5 @@ C:\Users\gugag\OneDrive\Área de Trabalho\Senai_\SENAI_HROADS_WEBAPI\Back-End\hr
 C:\Users\gugag\OneDrive\Área de Trabalho\Senai_\SENAI_HROADS_WEBAPI\Back-End\hroads\senai.hroads.WebApi\senai.hroads.WebApi\obj\Debug\net5.0\ref\senai.hroads.WebApi.dll
 C:\Users\gugag\OneDrive\Área de Trabalho\Senai_\SENAI_HROADS_WEBAPI\Back-End\hroads\senai.hroads.WebApi\senai.hroads.WebApi\obj\Debug\net5.0\senai.hroads.WebApi.pdb
 C:\Users\gugag\OneDrive\Área de Trabalho\Senai_\SENAI_HROADS_WEBAPI\Back-End\hroads\senai.hroads.WebApi\senai.hroads.WebApi\obj\Debug\net5.0\senai.hroads.WebApi.genruntimeconfig.cache
+C:\Users\gugag\OneDrive\Área de Trabalho\Senai_\SENAI_HROADS_WEBAPI\Back-End\hroads\senai.hroads.WebApi\senai.hroads.WebApi\bin\Debug\net5.0\senai.hroads.WebApi.xml
+C:\Users\gugag\OneDrive\Área de Trabalho\Senai_\SENAI_HROADS_WEBAPI\Back-End\hroads\senai.hroads.WebApi\senai.hroads.WebApi\obj\Debug\net5.0\senai.hroads.WebApi.xml

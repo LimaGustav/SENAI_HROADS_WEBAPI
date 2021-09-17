@@ -12,24 +12,43 @@ namespace senai.hroads.WebApi.Repositories
     {
         HroadsContext ctx = new HroadsContext();
 
-        public void Atualizar(int idTipoUsuario, TipoUsuario TipoUsuarioAtualizada)
+        public void Atualizar(int idTipoUsuario, TipoUsuario tipoUsuarioAtualizado)
         {
-            throw new NotImplementedException();
+            TipoUsuario tipoUsuarioBuscado = ctx.TipoUsuarios.Find(Convert.ToByte(idTipoUsuario));
+
+            if (tipoUsuarioBuscado != null)
+            {
+                tipoUsuarioBuscado.Titulo = tipoUsuarioAtualizado.Titulo;
+
+                ctx.TipoUsuarios.Update(tipoUsuarioBuscado);
+
+                ctx.SaveChanges();
+            }
         }
 
         public TipoUsuario BuscarPorId(int idTipoUsuario)
         {
-            throw new NotImplementedException();
+            return ctx.TipoUsuarios.FirstOrDefault(e => e.IdTipoUsuario == idTipoUsuario);
         }
 
         public void Cadastrar(TipoUsuario novoTipoUsuario)
         {
-            throw new NotImplementedException();
+            ctx.TipoUsuarios.Add(novoTipoUsuario);
+
+            ctx.SaveChanges();
         }
 
         public void Deletar(int idTipoUsuario)
         {
-            throw new NotImplementedException();
+            TipoUsuario tipoUsuarioBuscado = BuscarPorId(idTipoUsuario);
+
+            if (tipoUsuarioBuscado != null)
+            {
+                ctx.TipoUsuarios.Remove(tipoUsuarioBuscado);
+
+                ctx.SaveChanges();
+            }
+            
         }
 
         public List<TipoUsuario> Listar()

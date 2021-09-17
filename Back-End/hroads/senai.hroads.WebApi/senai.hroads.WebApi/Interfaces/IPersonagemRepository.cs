@@ -31,8 +31,8 @@ namespace senai.hroads.WebApi.Interfaces
         /// Atualiza um Personagem existente
         /// </summary>
         /// <param name="idPersonagem">ID do Personagem que será atualizado</param>
-        /// <param name="PersonagemAtualizada">Objeto PersonagemAtualizada com as novas informações</param>
-        void Atualizar(int idPersonagem, Personagem PersonagemAtualizada);
+        /// <param name="personagemAtualizado">Objeto PersonagemAtualizada com as novas informações</param>
+        void Atualizar(int idPersonagem, Personagem personagemAtualizado);
 
         /// <summary>
         /// Deleta um Personagem existente

@@ -1,5 +1,4 @@
-﻿using senai.hroads.webApi.Domains;
-using senai.hroads.WebApi.Domains;
+﻿using senai.hroads.WebApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
