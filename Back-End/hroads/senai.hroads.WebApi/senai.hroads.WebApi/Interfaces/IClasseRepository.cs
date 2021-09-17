@@ -25,15 +25,15 @@ namespace senai.hroads.webApi.Interfaces
         /// <summary>
         /// Cadastrar uma nova classe
         /// </summary>
-        /// <param name="novoClasse">Objeto novaClasse com os dados que serão cadastrados</param>
-        void Cadastrar(Classe novoClasse);
+        /// <param name="novaClasse">Objeto novaClasse com os dados que serão cadastrados</param>
+        void Cadastrar(Classe novaClasse);
 
         /// <summary>
         /// Atualiza uma classe existente
         /// </summary>
         /// <param name="idClasse">ID da classe que será atualizada</param>
-        /// <param name="ClasseAtualizada">Objeto ClasseAtualizada com as novas informações</param>
-        void Atualizar(int idClasse, Classe ClasseAtualizada);
+        /// <param name="classeAtualizada">Objeto ClasseAtualizada com as novas informações</param>
+        void Atualizar(int idClasse, Classe classeAtualizada);
 
         /// <summary>
         /// Deleta umm classe existente

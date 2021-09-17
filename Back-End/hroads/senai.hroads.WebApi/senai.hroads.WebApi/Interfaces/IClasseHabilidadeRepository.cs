@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace senai.hroads.WebApi.Interfaces
 {
-    interface IClassseHabilidadeRepository
+    interface IClasseHabilidadeRepository
     {
         /// <summary>
         /// Lista todas as ClasseHabilidades
@@ -24,8 +24,8 @@ namespace senai.hroads.WebApi.Interfaces
         /// <summary>
         /// Cadastrar uma nova ClasseHabilidade
         /// </summary>
-        /// <param name="novoClasseHabilidade">Objeto novaClasseHabilidade com os dados que serão cadastrados</param>
-        void Cadastrar(ClasseHabilidade novoClasseHabilidade);
+        /// <param name="novaClasseHabilidade">Objeto novaClasseHabilidade com os dados que serão cadastrados</param>
+        void Cadastrar(ClasseHabilidade novaClasseHabilidade);
 
         /// <summary>
         /// Atualiza uma ClasseHabilidade existente

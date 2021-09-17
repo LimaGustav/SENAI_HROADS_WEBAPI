@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gugag\\OneDrive\\Área de Trabalho\\Senai_\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj": {}
+    "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gugag\\OneDrive\\Área de Trabalho\\Senai_\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj": {
+    "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gugag\\OneDrive\\Área de Trabalho\\Senai_\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj",
+        "projectUniqueName": "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj",
         "projectName": "senai.hroads.WebApi",
-        "projectPath": "C:\\Users\\gugag\\OneDrive\\Área de Trabalho\\Senai_\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj",
-        "packagesPath": "C:\\Users\\gugag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gugag\\OneDrive\\Área de Trabalho\\Senai_\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\obj\\",
+        "projectPath": "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj",
+        "packagesPath": "C:\\Users\\ejr_0\\.nuget\\packages\\",
+        "outputPath": "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gugag\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ejr_0\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

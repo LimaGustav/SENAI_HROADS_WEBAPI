@@ -25,8 +25,8 @@ namespace senai.hroads.webApi.Interfaces
         /// <summary>
         /// Cadastrar uma nova Habilidade
         /// </summary>
-        /// <param name="novoHabilidade">Objeto novaHabilidade com os dados que serão cadastrados</param>
-        void Cadastrar(Habilidade novoHabilidade);
+        /// <param name="novaHabilidade">Objeto novaHabilidade com os dados que serão cadastrados</param>
+        void Cadastrar(Habilidade novaHabilidade);
 
         /// <summary>
         /// Atualiza uma Habilidade existente
