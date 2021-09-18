@@ -16,8 +16,8 @@ namespace senai.hroads.WebApi.Repositories
             ClasseHabilidade classehabilidadeBuscado = ctx.ClasseHabilidades.Find(idClasseHabilidade);
             if (classehabilidadeBuscado != null) 
             {
-                classehabilidadeBuscado.nomeClasseHabilidade = ClasseHabilidadeAtualizada.nomeClasseHablidade;
-                classehabilidadeBuscado.IdClasseHabilidade = ClasseHabilidadeAtualizada.IdClasseHabilidade;
+                classehabilidadeBuscado.IdClasse = ClasseHabilidadeAtualizada.IdClasse;
+                classehabilidadeBuscado.IdHabilidade = ClasseHabilidadeAtualizada.IdHabilidade;
 
                 ctx.ClasseHabilidades.Update(classehabilidadeBuscado);
 

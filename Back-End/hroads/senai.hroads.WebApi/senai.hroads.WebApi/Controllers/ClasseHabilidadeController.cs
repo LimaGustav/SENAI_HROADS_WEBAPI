@@ -21,90 +21,88 @@ namespace senai.hroads.WebApi.Controllers
         public ClasseHabilidadeController()
         {
             _classeHabilidadeRepository = new ClasseHabilidadeRepository();
-
-            [HttpGet]
-            public IActionResult Get()
+        }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
             {
-                try
-                {
-                    return Ok(_classeHabilidadeRepository.Listar());
-                }
-                catch (Exception erro)
-                {
-                    return BadRequest(erro);
-                    throw;
-                }
-
-                [HttpGet("{idClasseHabilidade}")]
-                public IActionResult GetById(int idClasse)
-                {
-                    try
-                    {
-                        ClasseHabilidade classeHabilidadeBuscado = IClasseHabilidadeRepository.BuscarPorId(ClasseHabilidade);
-
-                        if (classeHabilidadeBuscado == null)
-                        {
-                            return NotFound(
-                                    new
-                                    {
-                                        mensagem = "Classe da Habilidade não encontrada",
-                                        erro = true
-                                    }
-                                );
-                        }
-                        return Ok(classeHabilidadeBuscado);
-                    }
-                    catch (Exception erro)
-                    {
-                        return BadRequest(erro);
-                    }
-
-                    [HttpPost]
-                    public IActionResult Post(ClasseHabilidade novaClasseHabilidade)
-                    {
-                        try
-                        {
-                            _classeHabilidadeRepository.Cadastrar(novaClasseHabilidade);
-
-                            return StatusCode(201);
-                        }
-                        catch (Exception erro)
-                        {
-                            return BadRequest(erro);
-                        }
-
-                        HttpPut("{idClasseHabilidade}")]
-                    public IActionResult UpdateByUrl(int idClasseHabilidade, ClasseHabilidade classeHabilidadeAtualizada)
-                    {
-                        try
-                        {
-                            _classeHabilidadeRepository.Atualizar(idClasseHabilidade, classeHabilidadeAtualizada);
-
-                            return StatusCode(204);
-                        }
-                        catch (Exception erro)
-                        {
-                            return BadRequest(erro);
-                        }
-
-                        [HttpDelete("{idClasseHabilidade}")]
-                        public IActionResult Delete(int idClasseHabilidade)
-                        {
-                            try
-                            {
-                                _classeHabilidadeRepository.Deletar(idClasseHabilidade);
-
-                                return StatusCode(204);
-                            }
-                            catch (Exception erro)
-                            {
-                                return BadRequest(erro);
-                            }
-                        }
-
-
-                    }
-                }
+                return Ok(_classeHabilidadeRepository.Listar());
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+                throw;
             }
         }
+        [HttpGet("{idClasseHabilidade}")]
+        public IActionResult GetById(int idClasseHabilidade)
+        {
+            try
+            {
+                ClasseHabilidade classeHabilidadeBuscado = _classeHabilidadeRepository.BuscarPorId(idClasseHabilidade);
+
+                if (classeHabilidadeBuscado == null)
+                {
+                    return NotFound(
+                            new
+                            {
+                                mensagem = "Classe da Habilidade não encontrada",
+                                erro = true
+                            }
+                        );
+                }
+                return Ok(classeHabilidadeBuscado);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+        [HttpPost]
+        public IActionResult Post(ClasseHabilidade novaClasseHabilidade)
+        {
+            try
+            {
+                _classeHabilidadeRepository.Cadastrar(novaClasseHabilidade);
+
+                return StatusCode(201);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+
+            }
+        }
+        [HttpPut("{idClasseHabilidade}")]
+        public IActionResult UpdateByUrl(int idClasseHabilidade, ClasseHabilidade classeHabilidadeAtualizada)
+        {
+            try
+            {
+                _classeHabilidadeRepository.Atualizar(idClasseHabilidade, classeHabilidadeAtualizada);
+
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+        [HttpDelete("{idClasseHabilidade}")]
+        public IActionResult Delete(int idClasseHabilidade)
+        {
+            try
+            {
+                _classeHabilidadeRepository.Deletar(idClasseHabilidade);
+
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+
+
     }
+}

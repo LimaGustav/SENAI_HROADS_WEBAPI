@@ -7534,34 +7534,19 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\ejr_0\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\fic\\.nuget\\packages\\": {}
->>>>>>> ccba7e74b88d1ea14059132fdc99944f3b0769b7
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj",
+      "projectUniqueName": "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj",
       "projectName": "senai.hroads.WebApi",
-      "projectPath": "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj",
+      "projectPath": "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj",
       "packagesPath": "C:\\Users\\ejr_0\\.nuget\\packages\\",
-      "outputPath": "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\obj\\",
+      "outputPath": "E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ejr_0\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\fic\\Desktop\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj",
-      "projectName": "senai.hroads.WebApi",
-      "projectPath": "C:\\Users\\fic\\Desktop\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\senai.hroads.WebApi.csproj",
-      "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fic\\Desktop\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\fic\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> ccba7e74b88d1ea14059132fdc99944f3b0769b7
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7639,5 +7624,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache E:\\SENAI\\Projeto HROADS\\SENAI_HROADS_WEBAPI\\Back-End\\hroads\\senai.hroads.WebApi\\senai.hroads.WebApi\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

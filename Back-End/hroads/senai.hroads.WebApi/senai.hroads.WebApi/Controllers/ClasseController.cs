@@ -36,74 +36,73 @@ namespace senai.hroads.WebApi.Controllers
                 return BadRequest(erro);
                 throw;
             }
-
-            [HttpGet("{idClasse")]
-            public IActionResult GetById(int idClasse)
+        }
+        [HttpGet("{idClasse")]
+        public IActionResult GetById(int idClasse)
+        {
+            try
             {
-                try
+                Classe classeBuscado = _classeRepository.BuscarPorId(idClasse);
+
+                if (classeBuscado == null)
                 {
-                    Classe classeBuscado = IClasseRepository.BuscarPorId(Classe);
-
-                    if (classeBuscado == null)
-                    {
-                        return NotFound(
-                                new
-                                {
-                                    mensagem = "Classe não encontrada",
-                                    erro = true
-                                }
-                            );
-                    }
-                    return Ok(classeBuscado);
-                }
-                catch (Exception erro)
-                {
-                    return BadRequest(erro);
-                }
-
-                [HttpPost]
-                public IActionResult Post(Classe novaClasse)
-                {
-                    try
-                    {
-                        _classeRepository.Cadastrar(novaClasse);
-
-                        return StatusCode(201);
-                    }
-                    catch (Exception erro)
-                    {
-                        return BadRequest(erro);
-                    }
-
-                    [HttpPut("{idClasse}")]
-                    public IActionResult UpdateByUrl(int idClasse, Classe classeAtualizada)
-                    {
-                        try
-                        {
-                            _classeRepository.Atualizar(idClasse, classeAtualizada);
-
-                            return StatusCode(204);
-                        }
-                        catch (Exception erro)
-                        {
-                            return BadRequest(erro);
-                        }
-
-                        [HttpDelete("{idClasse}")]
-                        public IActionResult Delete(int idClasse)
-                        {
-                            try
+                    return NotFound(
+                            new
                             {
-                                _classeRepository.Deletar(idClasse);
-
-                                return StatusCode(204);
+                                mensagem = "Classe não encontrada",
+                                erro = true
                             }
-                            catch (Exception erro)
-                            {
-                                return BadRequest(erro);
-                            }
-                    }   }
+                        );
                 }
+                return Ok(classeBuscado);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+        [HttpPost]
+        public IActionResult Post(Classe novaClasse)
+        {
+            try
+            {
+                _classeRepository.Cadastrar(novaClasse);
+
+                return StatusCode(201);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+
+        [HttpPut("{idClasse}")]
+        public IActionResult UpdateByUrl(int idClasse, Classe classeAtualizada)
+        {
+            try
+            {
+                _classeRepository.Atualizar(idClasse, classeAtualizada);
+
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+
+        }
+        [HttpDelete("{idClasse}")]
+        public IActionResult Delete(int idClasse)
+        {
+            try
+            {
+                _classeRepository.Deletar(idClasse);
+
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
             }
         }
     }
