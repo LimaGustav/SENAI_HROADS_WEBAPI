@@ -39,5 +39,13 @@ namespace senai.hroads.webApi.Interfaces
         /// </summary>
         /// <param name="idUsuario">ID do Usuario que será deletado</param>
         void Deletar(int idUsuario);
+
+        /// <summary>
+        /// Busca um usuario atraves do email e senha
+        /// </summary>
+        /// <param name="email">Email do usuario</param>
+        /// <param name="senha">Senha do usuario</param>
+        /// <returns></returns>
+        Usuario BuscarPorEmailSenha(string email, string senha);
     }
 }
