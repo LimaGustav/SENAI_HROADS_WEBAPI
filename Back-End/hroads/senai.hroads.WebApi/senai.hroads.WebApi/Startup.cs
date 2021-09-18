@@ -113,7 +113,6 @@ namespace senai.hroads.WebApi
             {
                 endpoints.MapControllers();
 
-
             });
         }
     }
