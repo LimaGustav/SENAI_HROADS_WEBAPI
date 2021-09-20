@@ -1,4 +1,4 @@
-﻿using senai.hroads.WebApi.Domains;
+﻿using senai.hroads.webApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,38 +6,38 @@ using System.Threading.Tasks;
 
 namespace senai.hroads.webApi.Interfaces
 {
-    interface ITipoHabilidadeRepository
+    interface ITipohabilidadeRepository
     {
         /// <summary>
         /// Lista todos os Tipos de habilidades
         /// </summary>
         /// <returns>Uma lista de Tipos de habilidades</returns>
-        List<TipoHabilidade> Listar();
+        List<Tipohabilidade> Listar();
 
         /// <summary>
         /// Busca um Tipo de habilidade através do id
         /// </summary>
-        /// <param name="idTipoHabilidade">ID do Tipo de habilidade a ser buscado</param>
+        /// <param name="idTipohabilidade">ID do Tipo de habilidade a ser buscado</param>
         /// <returns>Um Tipo de habilidade buscado</returns>
-        TipoHabilidade BuscarPorId(int idTipoHabilidade);
+        Tipohabilidade BuscarPorId(int idTipohabilidade);
 
         /// <summary>
-        /// Cadastrar um novo TipoHabilidade
+        /// Cadastrar um novo Tipohabilidade
         /// </summary>
-        /// <param name="novoTipoHabilidade">Objeto novaTipoHabilidade com os dados que serão cadastrados</param>
-        void Cadastrar(TipoHabilidade novoTipoHabilidade);
+        /// <param name="novoTipohabilidade">Objeto novaTipohabilidade com os dados que serão cadastrados</param>
+        void Cadastrar(Tipohabilidade novoTipohabilidade);
 
         /// <summary>
-        /// Atualiza um TipoHabilidade existente
+        /// Atualiza um Tipohabilidade existente
         /// </summary>
-        /// <param name="idTipoHabilidade">ID do TipoHabilidade que será atualizado</param>
-        /// <param name="tipoHabilidadeAtualizada">Objeto TipoHabilidadeAtualizada com as novas informações</param>
-        void Atualizar(int idTipoHabilidade, TipoHabilidade tipoHabilidadeAtualizada);
+        /// <param name="idTipohabilidade">ID do Tipohabilidade que será atualizado</param>
+        /// <param name="TipohabilidadeAtualizada">Objeto TipohabilidadeAtualizada com as novas informações</param>
+        void Atualizar(int idTipohabilidade, Tipohabilidade TipohabilidadeAtualizada);
 
         /// <summary>
         /// Deleta um Tipo de habilidade existente
         /// </summary>
-        /// <param name="idTipoHabilidade">ID do TipoHabilidade que será deletado</param>
-        void Deletar(int idTipoHabilidade);
+        /// <param name="idTipohabilidade">ID do Tipohabilidade que será deletado</param>
+        void Deletar(int idTipohabilidade);
     }
 }

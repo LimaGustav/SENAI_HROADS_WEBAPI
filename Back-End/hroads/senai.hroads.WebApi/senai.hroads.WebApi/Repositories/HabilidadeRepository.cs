@@ -1,10 +1,11 @@
 ﻿using senai.hroads.webApi.Interfaces;
-using senai.hroads.WebApi.Contexts;
-using senai.hroads.WebApi.Domains;
+using senai.hroads.webApi.Contexts;
+using senai.hroads.webApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace senai.hroads.WebApi.Repositories
 {
@@ -49,6 +50,11 @@ namespace senai.hroads.WebApi.Repositories
         public List<Habilidade> Listar()
         {
             return ctx.Habilidades.ToList();
+        }
+
+        public List<Habilidade> ListarTudo()
+        {
+            return ctx.Habilidades.Include(h => h.IdTipoHabilidadeNavigation).Include(h => h.ClasseHabilidades).ThenInclude(ch => ch.IdClasseNavigation).ToList();
         }
     }
 }

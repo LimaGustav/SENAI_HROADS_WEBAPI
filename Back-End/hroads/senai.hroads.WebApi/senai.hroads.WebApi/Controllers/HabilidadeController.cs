@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai.hroads.webApi.Interfaces;
-using senai.hroads.WebApi.Domains;
+using senai.hroads.webApi.Domains;
 using senai.hroads.WebApi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace senai.hroads.WebApi.Controllers
 {
@@ -21,6 +22,11 @@ namespace senai.hroads.WebApi.Controllers
         {
             _HabilidadeRepository = new HabilidadeRepository();
         }
+
+        /// <summary>
+        /// Lista todas as habilidades
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -35,7 +41,22 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
-        [HttpGet("{idHabilidade")]
+        [Authorize(Roles = "1")]
+        [HttpGet("get/all")]
+        public IActionResult GetAll()
+        {
+            try
+            {
+                return Ok(_HabilidadeRepository.ListarTudo());
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+                throw;
+            }
+        }
+
+        [HttpGet("{idHabilidade}")]
         public IActionResult GetById(int idHabilidade)
         {
             try
@@ -59,6 +80,8 @@ namespace senai.hroads.WebApi.Controllers
                 return BadRequest(erro);
             }
         }
+
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(Habilidade novaHabilidade)
         {
@@ -73,6 +96,8 @@ namespace senai.hroads.WebApi.Controllers
                 return BadRequest(erro);
             }
         }
+
+        [Authorize(Roles = "1")]
         [HttpPut("{idHabilidade}")]
         public IActionResult UpdateByUrl(int idHabilidade, Habilidade HabilidadeAtualizada)
         {
@@ -88,6 +113,8 @@ namespace senai.hroads.WebApi.Controllers
             }
 
         }
+
+        [Authorize(Roles = "1")]
         [HttpDelete("{idHabilidade}")]
         public IActionResult Delete(int idHabilidade)
         {

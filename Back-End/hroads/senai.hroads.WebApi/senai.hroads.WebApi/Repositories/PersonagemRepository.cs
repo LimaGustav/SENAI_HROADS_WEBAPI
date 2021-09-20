@@ -1,5 +1,6 @@
-﻿using senai.hroads.WebApi.Contexts;
-using senai.hroads.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.hroads.webApi.Contexts;
+using senai.hroads.webApi.Domains;
 using senai.hroads.WebApi.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -59,6 +60,11 @@ namespace senai.hroads.WebApi.Repositories
         {
             // Retorna uma lista de estúdios
             return ctx.Personagems.ToList();
+        }
+
+        public List<Personagem> ListarTudo()
+        {
+            return ctx.Personagems.Include(p => p.IdClasseNavigation).Include(p => p.IdUsuarioNavigation).ThenInclude(u => u.IdTipoUsuarioNavigation).ToList();
         }
     }
 }

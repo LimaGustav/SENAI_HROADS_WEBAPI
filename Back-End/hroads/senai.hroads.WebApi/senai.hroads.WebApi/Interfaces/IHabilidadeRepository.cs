@@ -1,4 +1,4 @@
-﻿using senai.hroads.WebApi.Domains;
+﻿using senai.hroads.webApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,12 @@ namespace senai.hroads.webApi.Interfaces
         /// </summary>
         /// <returns>Uma lista de Habilidades</returns>
         List<Habilidade> Listar();
+
+        /// <summary>
+        /// Lista todas as Habilidades e suas respectivas informações
+        /// </summary>
+        /// <returns></returns>
+        List<Habilidade> ListarTudo();
 
         /// <summary>
         /// Busca uma Habilidade através do id

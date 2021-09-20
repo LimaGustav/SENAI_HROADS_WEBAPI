@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using senai.hroads.webApi.Interfaces;
-using senai.hroads.WebApi.Contexts;
-using senai.hroads.WebApi.Domains;
+using senai.hroads.webApi.Contexts;
+using senai.hroads.webApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +48,11 @@ namespace senai.hroads.WebApi.Repositories
         public List<Classe> Listar()
         {
             return ctx.Classes.ToList();
+        }
+
+        public List<Classe> ListarAll()
+        {
+            return ctx.Classes.Include(c => c.Personagems).ToList();
         }
     }
 }

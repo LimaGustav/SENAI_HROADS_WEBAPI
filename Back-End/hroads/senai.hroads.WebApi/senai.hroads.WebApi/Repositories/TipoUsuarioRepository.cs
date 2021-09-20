@@ -1,6 +1,6 @@
 ﻿using senai.hroads.webApi.Interfaces;
-using senai.hroads.WebApi.Contexts;
-using senai.hroads.WebApi.Domains;
+using senai.hroads.webApi.Contexts;
+using senai.hroads.webApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,52 +8,52 @@ using System.Threading.Tasks;
 
 namespace senai.hroads.WebApi.Repositories
 {
-    public class TipoUsuarioRepository : ITipoUsuarioRepository
+    public class TipousuarioRepository : ITipoUsuarioRepository
     {
         HroadsContext ctx = new HroadsContext();
 
-        public void Atualizar(int idTipoUsuario, TipoUsuario tipoUsuarioAtualizado)
+        public void Atualizar(int idTipousuario, Tipousuario TipousuarioAtualizado)
         {
-            TipoUsuario tipoUsuarioBuscado = ctx.TipoUsuarios.Find(Convert.ToByte(idTipoUsuario));
+            Tipousuario TipousuarioBuscado = ctx.Tipousuarios.Find(Convert.ToByte(idTipousuario));
 
-            if (tipoUsuarioBuscado != null)
+            if (TipousuarioBuscado != null)
             {
-                tipoUsuarioBuscado.Titulo = tipoUsuarioAtualizado.Titulo;
+                TipousuarioBuscado.Titulo = TipousuarioAtualizado.Titulo;
 
-                ctx.TipoUsuarios.Update(tipoUsuarioBuscado);
+                ctx.Tipousuarios.Update(TipousuarioBuscado);
 
                 ctx.SaveChanges();
             }
         }
 
-        public TipoUsuario BuscarPorId(int idTipoUsuario)
+        public Tipousuario BuscarPorId(int idTipousuario)
         {
-            return ctx.TipoUsuarios.FirstOrDefault(e => e.IdTipoUsuario == idTipoUsuario);
+            return ctx.Tipousuarios.FirstOrDefault(e => e.IdTipoUsuario == idTipousuario);
         }
 
-        public void Cadastrar(TipoUsuario novoTipoUsuario)
+        public void Cadastrar(Tipousuario novoTipousuario)
         {
-            ctx.TipoUsuarios.Add(novoTipoUsuario);
+            ctx.Tipousuarios.Add(novoTipousuario);
 
             ctx.SaveChanges();
         }
 
-        public void Deletar(int idTipoUsuario)
+        public void Deletar(int idTipousuario)
         {
-            TipoUsuario tipoUsuarioBuscado = BuscarPorId(idTipoUsuario);
+            Tipousuario TipousuarioBuscado = BuscarPorId(idTipousuario);
 
-            if (tipoUsuarioBuscado != null)
+            if (TipousuarioBuscado != null)
             {
-                ctx.TipoUsuarios.Remove(tipoUsuarioBuscado);
+                ctx.Tipousuarios.Remove(TipousuarioBuscado);
 
                 ctx.SaveChanges();
             }
             
         }
 
-        public List<TipoUsuario> Listar()
+        public List<Tipousuario> Listar()
         {
-            return ctx.TipoUsuarios.ToList();
+            return ctx.Tipousuarios.ToList();
         }
     }
 }

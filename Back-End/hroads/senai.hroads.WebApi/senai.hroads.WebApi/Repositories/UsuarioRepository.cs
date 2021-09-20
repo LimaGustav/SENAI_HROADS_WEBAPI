@@ -1,6 +1,7 @@
-﻿using senai.hroads.webApi.Interfaces;
-using senai.hroads.WebApi.Contexts;
-using senai.hroads.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using senai.hroads.webApi.Interfaces;
+using senai.hroads.webApi.Contexts;
+using senai.hroads.webApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,17 @@ namespace senai.hroads.WebApi.Repositories
         public List<Usuario> Listar()
         {
             return ctx.Usuarios.ToList();
+        }
+
+        public List<Usuario> ListarComTipo()
+        {
+            return ctx.Usuarios.Include(u => u.IdTipoUsuarioNavigation).ToList();
+        }
+
+        public List<Usuario> ListarTudo()
+        {
+            return ctx.Usuarios.Include(u => u.IdTipoUsuarioNavigation)
+                .Include(u => u.Personagems).ToList();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using senai.hroads.WebApi.Domains;
+﻿using senai.hroads.webApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,18 @@ namespace senai.hroads.webApi.Interfaces
         /// </summary>
         /// <returns>Uma lista de usuarios</returns>
         List<Usuario> Listar();
+
+        /// <summary>
+        /// Lista todos os Usuarios e seus respectivos tipos
+        /// </summary>
+        /// <returns>Uma lista de usuarios</returns>
+        List<Usuario> ListarComTipo();
+
+        /// <summary>
+        /// Lista todos os Usuarios e suas respectivas informações
+        /// </summary>
+        /// <returns></returns>
+        List<Usuario> ListarTudo();
 
         /// <summary>
         /// Busca um usuario através do id

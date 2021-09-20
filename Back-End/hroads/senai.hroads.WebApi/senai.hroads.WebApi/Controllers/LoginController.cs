@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using senai.hroads.webApi.Interfaces;
-using senai.hroads.WebApi.Domains;
+using senai.hroads.webApi.Domains;
 using senai.hroads.WebApi.Repositories;
 using System;
 using System.Collections.Generic;

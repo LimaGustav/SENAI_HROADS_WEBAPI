@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using senai.hroads.webApi.Domains;
 using senai.hroads.webApi.Interfaces;
-using senai.hroads.WebApi.Domains;
 using senai.hroads.WebApi.Repositories;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace senai.hroads.WebApi.Controllers
 
         public TiposUsuarioController()
         {
-            _tipoUsuarioRepository = new TipoUsuarioRepository();
+            _tipoUsuarioRepository = new TipousuarioRepository();
         }
 
         [HttpGet]
@@ -41,7 +42,7 @@ namespace senai.hroads.WebApi.Controllers
         {
             try
             {
-                TipoUsuario tipoUsuarioBuscado = _tipoUsuarioRepository.BuscarPorId(idTipoUsuario);
+                Tipousuario tipoUsuarioBuscado = _tipoUsuarioRepository.BuscarPorId(idTipoUsuario);
 
                 if (tipoUsuarioBuscado == null)
                 {
@@ -63,8 +64,9 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
+        [Authorize(Roles = "1")]
         [HttpPost]
-        public IActionResult Post(TipoUsuario novoTipoUsuario)
+        public IActionResult Post(Tipousuario novoTipoUsuario)
         {
             try
             {
@@ -78,8 +80,9 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
+        [Authorize(Roles = "1")]
         [HttpPut("{idTipoUsuario}")]
-        public IActionResult UpdateByUrl(int idTipoUsuario, TipoUsuario tipoUsuarioAtualizado)
+        public IActionResult UpdateByUrl(int idTipoUsuario, Tipousuario tipoUsuarioAtualizado)
         {
             try
             {
@@ -93,6 +96,7 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
+        [Authorize(Roles = "1")]
         [HttpDelete("{idTipoUsuario}")]
         public IActionResult Delete(int idTipoUsuario)
         {

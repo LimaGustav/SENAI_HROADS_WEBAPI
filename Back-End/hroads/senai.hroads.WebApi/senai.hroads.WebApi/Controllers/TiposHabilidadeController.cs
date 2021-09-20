@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai.hroads.webApi.Interfaces;
-using senai.hroads.WebApi.Domains;
+using senai.hroads.webApi.Domains;
 using senai.hroads.WebApi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace senai.hroads.WebApi.Controllers
 {
@@ -15,12 +16,12 @@ namespace senai.hroads.WebApi.Controllers
     [ApiController]
     public class TiposHabilidadeController : ControllerBase
     {
-        private ITipoHabilidadeRepository _tipoHabilidadeRepository { get; set; }
+        private ITipohabilidadeRepository _TipohabilidadeRepository { get; set; }
 
 
         public TiposHabilidadeController()
         {
-            _tipoHabilidadeRepository = new TipoHabilidadeRepository();
+            _TipohabilidadeRepository = new TipohabilidadeRepository();
         }
 
         [HttpGet]
@@ -28,7 +29,7 @@ namespace senai.hroads.WebApi.Controllers
         {
             try
             {
-                return Ok(_tipoHabilidadeRepository.Listar());
+                return Ok(_TipohabilidadeRepository.Listar());
             }
             catch (Exception erro)
             {
@@ -36,14 +37,14 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
-        [HttpGet("{idTipoHabilidade}")]
+        [HttpGet("{idTipohabilidade}")]
         public IActionResult GetById(int idUsuario)
         {
             try
             {
-                TipoHabilidade tipoHabilidadeBuscado = _tipoHabilidadeRepository.BuscarPorId(idUsuario);
+                Tipohabilidade TipohabilidadeBuscado = _TipohabilidadeRepository.BuscarPorId(idUsuario);
 
-                if (tipoHabilidadeBuscado == null)
+                if (TipohabilidadeBuscado == null)
                 {
                     return NotFound(
                             new
@@ -55,7 +56,7 @@ namespace senai.hroads.WebApi.Controllers
                         ); ;
 
                 }
-                return Ok(tipoHabilidadeBuscado);
+                return Ok(TipohabilidadeBuscado);
             }
             catch (Exception erro)
             {
@@ -64,12 +65,13 @@ namespace senai.hroads.WebApi.Controllers
             
         }
 
+        [Authorize(Roles = "1")]
         [HttpPost]
-        public IActionResult Post(TipoHabilidade novoTipoHabilidade)
+        public IActionResult Post(Tipohabilidade novoTipohabilidade)
         {
             try
             {
-                _tipoHabilidadeRepository.Cadastrar(novoTipoHabilidade);
+                _TipohabilidadeRepository.Cadastrar(novoTipohabilidade);
 
                 return StatusCode(201);
             }
@@ -80,12 +82,13 @@ namespace senai.hroads.WebApi.Controllers
             
         }
 
-        [HttpPut("{idTipoHabilidade}")]
-        public IActionResult UpdateByUrl(int idTipoHabilidade, TipoHabilidade tipoHabilidadeAtualizada)
+        [Authorize(Roles = "1")]
+        [HttpPut("{idTipohabilidade}")]
+        public IActionResult UpdateByUrl(int idTipohabilidade, Tipohabilidade TipohabilidadeAtualizada)
         {
             try
             {
-                _tipoHabilidadeRepository.Atualizar(idTipoHabilidade, tipoHabilidadeAtualizada);
+                _TipohabilidadeRepository.Atualizar(idTipohabilidade, TipohabilidadeAtualizada);
 
                 return StatusCode(204);
             }
@@ -95,13 +98,14 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
-        [HttpDelete("{idTipoHabilidade}")]
-        public IActionResult Delete(int idTipoHabilidade)
+        [Authorize(Roles = "1")]
+        [HttpDelete("{idTipohabilidade}")]
+        public IActionResult Delete(int idTipohabilidade)
         {
 
             try
             {
-                _tipoHabilidadeRepository.Deletar(idTipoHabilidade);
+                _TipohabilidadeRepository.Deletar(idTipohabilidade);
 
                 return StatusCode(204);
             }

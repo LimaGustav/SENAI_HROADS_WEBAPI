@@ -1,6 +1,6 @@
 ﻿using senai.hroads.webApi.Interfaces;
-using senai.hroads.WebApi.Contexts;
-using senai.hroads.WebApi.Domains;
+using senai.hroads.webApi.Contexts;
+using senai.hroads.webApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,52 +8,52 @@ using System.Threading.Tasks;
 
 namespace senai.hroads.WebApi.Repositories
 {
-    public class TipoHabilidadeRepository : ITipoHabilidadeRepository
+    public class TipohabilidadeRepository : ITipohabilidadeRepository
     {
         HroadsContext ctx = new HroadsContext();
 
-        public void Atualizar(int idTipoHabilidade, TipoHabilidade tipoHabilidadeAtualizada)
+        public void Atualizar(int idTipohabilidade, Tipohabilidade TipohabilidadeAtualizada)
         {
-            TipoHabilidade tipoHabilidadeBuscada = ctx.TipoHabilidades.Find(idTipoHabilidade);
+            Tipohabilidade TipohabilidadeBuscada = ctx.Tipohabilidades.Find(idTipohabilidade);
 
-            if (tipoHabilidadeBuscada != null)
+            if (TipohabilidadeBuscada != null)
             {
-                tipoHabilidadeBuscada.NomeTipoHabilidade = tipoHabilidadeAtualizada.NomeTipoHabilidade;
+                TipohabilidadeBuscada.NomeTipoHabilidade = TipohabilidadeAtualizada.NomeTipoHabilidade;
 
-                ctx.TipoHabilidades.Update(tipoHabilidadeBuscada);
+                ctx.Tipohabilidades.Update(TipohabilidadeBuscada);
 
                 ctx.SaveChanges();
             }
         }
 
-        public TipoHabilidade BuscarPorId(int idTipoHabilidade)
+        public Tipohabilidade BuscarPorId(int idTipohabilidade)
         {
             // Retorna um estúdio encontrado com o id informado
-            return ctx.TipoHabilidades.FirstOrDefault(e => e.IdTipoHabilidade == idTipoHabilidade);
+            return ctx.Tipohabilidades.FirstOrDefault(e => e.IdTipoHabilidade == idTipohabilidade);
         }
 
-        public void Cadastrar(TipoHabilidade novoTipoHabilidade)
+        public void Cadastrar(Tipohabilidade novoTipohabilidade)
         {
             // Adiciona este novoEstudio
-            ctx.TipoHabilidades.Add(novoTipoHabilidade);
+            ctx.Tipohabilidades.Add(novoTipohabilidade);
 
             // Salva as informações que serão gravadas no banco de dados
             ctx.SaveChanges();
         }
 
-        public void Deletar(int idTipoHabilidade)
+        public void Deletar(int idTipohabilidade)
         {
-            TipoHabilidade tipoHabilidadeBuscada = BuscarPorId(idTipoHabilidade);
+            Tipohabilidade TipohabilidadeBuscada = BuscarPorId(idTipohabilidade);
 
-            ctx.TipoHabilidades.Remove(tipoHabilidadeBuscada);
+            ctx.Tipohabilidades.Remove(TipohabilidadeBuscada);
 
             ctx.SaveChanges();
         }
 
-        public List<TipoHabilidade> Listar()
+        public List<Tipohabilidade> Listar()
         {
             // Retorna uma lista de estúdios
-            return ctx.TipoHabilidades.ToList();
+            return ctx.Tipohabilidades.ToList();
         }
     }
 }

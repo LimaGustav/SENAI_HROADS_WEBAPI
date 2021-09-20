@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace senai.hroads.WebApi.Domains
+namespace senai.hroads.webApi.Domains
 {
-    public partial class TipoHabilidade
+    public partial class Tipohabilidade
     {
-        public TipoHabilidade()
+        public Tipohabilidade()
         {
             Habilidades = new HashSet<Habilidade>();
         }

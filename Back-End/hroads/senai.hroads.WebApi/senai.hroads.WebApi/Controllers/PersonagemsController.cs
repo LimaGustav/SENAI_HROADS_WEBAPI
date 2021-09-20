@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using senai.hroads.WebApi.Domains;
+using senai.hroads.webApi.Domains;
 using senai.hroads.WebApi.Interfaces;
 using senai.hroads.WebApi.Repositories;
 using System;
@@ -22,6 +23,7 @@ namespace senai.hroads.WebApi.Controllers
             _personagemRepository = new PersonagemRepository();
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -33,6 +35,21 @@ namespace senai.hroads.WebApi.Controllers
             {
                 return BadRequest(erro);
                 throw;
+            }
+        }
+
+        [Authorize(Roles = "1")]
+        [HttpGet("get/all")]
+        public IActionResult GetAll()
+        {
+            try
+            {
+                return Ok(_personagemRepository.ListarTudo());
+
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
             }
         }
 
@@ -60,6 +77,7 @@ namespace senai.hroads.WebApi.Controllers
                 return BadRequest(erro);
             }
         }
+        [Authorize(Roles = "2")]
         [HttpPost]
         public IActionResult Post(Personagem novoPersonagem)
         {
@@ -75,6 +93,7 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("{idPersonagem}")]
         public IActionResult UpdateByUrl(int idPersonagem, Personagem personagemAtualizado)
         {
@@ -90,6 +109,7 @@ namespace senai.hroads.WebApi.Controllers
             }
         }
 
+        [Authorize(Roles = "1")]
         [HttpDelete("{idPersonagem}")]
         public IActionResult Delete(int idPersonagem)
         {

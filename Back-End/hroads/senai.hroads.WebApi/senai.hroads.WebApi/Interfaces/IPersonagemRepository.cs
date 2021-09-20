@@ -1,4 +1,4 @@
-﻿using senai.hroads.WebApi.Domains;
+﻿using senai.hroads.webApi.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,12 @@ namespace senai.hroads.WebApi.Interfaces
         /// </summary>
         /// <returns>Uma lista de Personagems</returns>
         List<Personagem> Listar();
+
+        /// <summary>
+        /// Lista todos os Personagems com suas respectivas informações
+        /// </summary>
+        /// <returns></returns>
+        List<Personagem> ListarTudo();
 
         /// <summary>
         /// Busca um Personagem através do id

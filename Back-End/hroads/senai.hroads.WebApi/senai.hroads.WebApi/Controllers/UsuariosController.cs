@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using senai.hroads.webApi.Domains;
 using senai.hroads.webApi.Interfaces;
-using senai.hroads.WebApi.Domains;
 using senai.hroads.WebApi.Repositories;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,35 @@ namespace senai.hroads.WebApi.Controllers
             
         }
 
+        [Authorize(Roles = "1")]
+        [HttpGet("get/tipo")]
+        public IActionResult ListarTipo()
+        {
+            try
+            {
+                return Ok(_usuarioRepository.ListarComTipo());
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+
+        [Authorize(Roles = "1")]
+        [HttpGet("get/all")]
+        public IActionResult ListarTudo()
+        {
+            try
+            {
+                return Ok(_usuarioRepository.ListarTudo());
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+
+        [Authorize(Roles = "2")]
         [HttpGet("{idUsuario}")]
         public IActionResult GetById(int idUsuario)
         {
@@ -97,6 +127,7 @@ namespace senai.hroads.WebApi.Controllers
             
         }
 
+        [Authorize(Roles = "1")]
         [HttpDelete("{idUsuario}")]
         public IActionResult Delete(int idUsuario)
         {

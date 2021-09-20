@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using senai.hroads.webApi.Interfaces;
 using senai.hroads.WebApi.Domains;
-using senai.hroads.WebApi.Interfaces;
 using senai.hroads.WebApi.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,59 +13,77 @@ namespace senai.hroads.WebApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    public class ClasseController : ControllerBase
+    public class UsuariosController : ControllerBase
     {
-        private IClasseRepository _classeRepository { get; set; }
+        private IUsuarioRepository _usuarioRepository { get; set; }
 
-        public ClasseController()
+
+        public UsuariosController()
         {
-            _classeRepository = new ClasseRepository();
+            _usuarioRepository = new UsuarioRepository();
         }
 
-
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Listar()
         {
             try
             {
-                return Ok(_classeRepository.Listar());
+                return Ok(_usuarioRepository.Listar());
             }
             catch (Exception erro)
             {
                 return BadRequest(erro);
-                throw;
             }
+            
         }
-        [HttpGet("{idClasse")]
-        public IActionResult GetById(int idClasse)
+
+        [HttpGet]
+        public IActionResult ListarTipo()
         {
             try
             {
-                Classe classeBuscado = _classeRepository.BuscarPorId(idClasse);
+                return Ok(_usuarioRepository.ListarComTipo());
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
 
-                if (classeBuscado == null)
+        [HttpGet("{idUsuario}")]
+        public IActionResult GetById(int idUsuario)
+        {
+            try
+            {
+                Usuario usuarioBuscado = _usuarioRepository.BuscarPorId(idUsuario);
+
+                if (usuarioBuscado == null)
                 {
                     return NotFound(
                             new
                             {
-                                mensagem = "Classe não encontrada",
+                                mensagem = "Usuario não encontrado",
                                 erro = true
                             }
-                        );
+
+                        ); ;
+
                 }
-                return Ok(classeBuscado);
+                return Ok(usuarioBuscado);
             }
             catch (Exception erro)
             {
                 return BadRequest(erro);
             }
+           
         }
+
         [HttpPost]
-        public IActionResult Post(Classe novaClasse)
+        public IActionResult Post(Usuario usuario)
         {
             try
             {
-                _classeRepository.Cadastrar(novaClasse);
+                _usuarioRepository.Cadastrar(usuario);
 
                 return StatusCode(201);
             }
@@ -74,14 +91,15 @@ namespace senai.hroads.WebApi.Controllers
             {
                 return BadRequest(erro);
             }
+            
         }
 
-        [HttpPut("{idClasse}")]
-        public IActionResult UpdateByUrl(int idClasse, Classe classeAtualizada)
+        [HttpPut("{idUsuario}")]
+        public IActionResult UpdateByUrl(int idUsuario, Usuario usuarioAtualizado)
         {
             try
             {
-                _classeRepository.Atualizar(idClasse, classeAtualizada);
+                _usuarioRepository.Atualizar(idUsuario, usuarioAtualizado);
 
                 return StatusCode(204);
             }
@@ -89,14 +107,15 @@ namespace senai.hroads.WebApi.Controllers
             {
                 return BadRequest(erro);
             }
-
+            
         }
-        [HttpDelete("{idClasse}")]
-        public IActionResult Delete(int idClasse)
+
+        [HttpDelete("{idUsuario}")]
+        public IActionResult Delete(int idUsuario)
         {
             try
             {
-                _classeRepository.Deletar(idClasse);
+                _usuarioRepository.Deletar(idUsuario);
 
                 return StatusCode(204);
             }
